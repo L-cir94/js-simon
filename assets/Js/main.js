@@ -19,19 +19,38 @@ il risultato.
 */
 
 //Visualizzare in pagina 5 numeri casuali.
-const resultElement = document.getElementById('result')
+const numbsElement = document.getElementById('numbers')
 const pcNumb = [];
+let numeriScelti = []
+generaNumCasuali(1, 5)
+console.log(pcNumb);
+//Da lì parte un timer di 30 secondi.
 
+
+
+/* funzioni che posso richiamare */
 function generaNumCasuali(min, max) {
   let randNum
   for (let i = 0; i < max; i++) {
-    randNum = Math.floor(Math.random() * (max - min + 1)) + min ;
-    resultElement.append(randNum);
+    randNum = Math.floor(Math.random() * (max - min + 1)) + min;
+    numbsElement.append(randNum);
     pcNumb.push(randNum)
   }
   return randNum
 }
+setTimeout(function () {
 
-generaNumCasuali(1,5)
-console.log(pcNumb);
-//Da lì parte un timer di 30 secondi.
+  numbsElement.innerHTML = ''
+
+}, 3000)
+setTimeout(function () {
+
+
+  let promtUtente = Number(prompt('inserisci i numeri che hai visto'));
+  numeriScelti.push(promtUtente)
+
+}, 3005)
+console.log(numeriScelti)
+if(numeriScelti == pcNumb[i]){
+  console.log('ciao');
+}
